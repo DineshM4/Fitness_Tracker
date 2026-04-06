@@ -1,88 +1,114 @@
-# Fitness Tracker
+# Fitness Tracker - Modern Version
 
-A full-stack fitness tracking application for logging workouts — track exercises, sets, reps, weight, and date with a browser-based UI backed by a REST API.
+A full-stack fitness tracking application with workout logging, analytics, and PR tracking.
 
 ## Overview
 
-The app is split into two components:
+This application features:
 
-- **Backend** (`app.py`) — A Flask REST API that stores workout data in a local SQLite database
-- **Frontend** (`streamlit_app.py`) — A Streamlit UI that communicates with the API to display and manage workout logs
+- **FastAPI Backend**: Modern REST API with async support, JWT auth (configurable), and comprehensive endpoints
+- **SQLite Database**: Local storage with Alembic migrations
+- **Streamlit UI**: Polished dashboard with Plotly charts, PR tracking, and stats
 
 ## Features
 
+### Workout Logging
 - Log workouts with exercise name, sets, reps, weight, and date
-- View all workout logs in a sortable table
-- Visualize weight progress over time per exercise with a line chart
-- Add new workout entries via a form (date defaults to today)
-- Update existing workout entries by ID
-- Delete a single workout entry by ID
-- Delete all workout logs at once (with confirmation prompt)
-- Graceful error handling if the backend is unreachable
+- Track RPE (Rate of Perceived Exertion) 1-10
+- Add notes per workout
+- Support for kg/lbs units
+
+### Analytics & Insights
+- Personal Records (PRs) by exercise
+- Volume tracking over time
+- Workout frequency heatmap by day of week
+- Progress charts with trend lines
+- Daily/weekly volume breakdown
+
+### Data Management
+- Export workouts to JSON/CSV
+- Search workouts by exercise name
+- Bulk delete workouts
+- Exercise presets (save favorite workouts)
 
 ## Tech Stack
 
-- **Python** — core language
-- **Flask** — REST API backend
-- **SQLite** — local database (`workout_logs.db`)
-- **Streamlit** — interactive frontend UI
-- **Pandas** — data display and chart preparation
-- **Requests** — HTTP client used by the frontend to call the API
+- **Backend**: Python, FastAPI, SQLAlchemy, SQLite, Alembic, Passlib
+- **Frontend**: Python, Streamlit, Pandas, Plotly, Numpy
+- **Authentication**: API Key (configurable) or JWT
 
 ## Getting Started
 
 ### Prerequisites
 
 ```bash
-pip install flask
+# Install dependencies
+pip install -r requirements.txt
+
+# Initialize database (runs migrations)
+python3 -c "from database import init_db; init_db()"
 ```
 
 ### Running the App
 
-Start both servers in separate terminals:
-
-**1. Start the Flask backend:**
+**1. Start the FastAPI backend:**
 ```bash
-python app.py
+uvicorn app:app --reload
 ```
-The API will be available at `http://127.0.0.1:5000`.
+The API will be available at `http://127.0.0.1:8000`
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- Health check: `http://127.0.0.1:8000/health`
 
 **2. Start the Streamlit frontend:**
 ```bash
 streamlit run streamlit_app.py
 ```
-The UI will open automatically in your browser.
 
 ## API Reference
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `GET` | `/workouts` | Retrieve all workout logs |
-| `POST` | `/workouts` | Add a new workout |
-| `PUT` | `/workouts/<id>` | Update a workout by ID |
-| `DELETE` | `/workouts/<id>` | Delete a workout by ID |
-| `DELETE` | `/workouts` | Delete all workout logs |
+| `GET` | `/health` | Health check |
+| `POST` | `/workouts` | Create a workout (X-API-Key header) |
+| `GET` | `/workouts` | List all workouts |
+| `GET` | `/workouts/{id}` | Get a specific workout |
+| `PUT` | `/workouts/{id}` | Update a workout |
+| `DELETE` | `/workouts/{id}` | Delete a workout |
+| `GET` | `/stats` | Aggregate statistics |
+| `GET` | `/stats/prs` | Personal records by exercise |
+| `GET` | `/stats/volume-history` | Volume over time |
+| `POST` | `/search` | Search workouts |
+| `POST` | `/export` | Export to JSON/CSV |
 
-### Request Body (POST / PUT)
+### Authentication
 
-```json
-{
-  "exercise": "Bench Press",
-  "sets": 3,
-  "reps": 10,
-  "weight": 80.0,
-  "date": "2026-04-05"
-}
-```
+The API uses an API key for authentication. Add `X-API-Key: test-api-key-change-in-production` to your headers.
 
-`date` is optional on POST — defaults to today's date if omitted.
+For production, set `API_KEY` environment variable and update the `api_key` dependency in `app.py`.
 
 ## Project Structure
 
 ```
 Fitness_Tracker/
-├── app.py             # Flask REST API
-├── streamlit_app.py   # Streamlit frontend
-├── workout_logs.db    # SQLite database (auto-created on first run)
+├── app.py                 # FastAPI backend
+├── database.py           # SQLAlchemy models and DB setup
+├── schemas.py            # Pydantic models
+├── streamlit_app.py      # Streamlit frontend
+├── requirements.txt      # Python dependencies
+├── alembic/              # Database migrations
+│   └── versions/
+├── workout_logs.db       # SQLite database (auto-created)
 └── README.md
 ```
+
+## Migration from v1
+
+The original Flask app (`app.py`) has been replaced with a FastAPI backend. Old data is preserved:
+
+1. The `workout_logs` table is preserved
+2. New tables (`workouts`, `users`, `exercise_presets`) are created
+3. Migrations apply schema changes
+
+## License
+
+MIT License

@@ -76,29 +76,29 @@ st.markdown(
     """
 <style>
     .metric-card {
-        background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+        background: #ffffff;
         border-radius: 16px;
         padding: 24px 20px;
         text-align: center;
-        border: 1px solid #3a3a4e;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        border: 1px solid #e7e5e4;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         transition: transform 0.2s, box-shadow 0.2s;
     }
     .metric-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 30px rgba(124, 58, 237, 0.2);
+        box-shadow: 0 8px 30px rgba(234, 88, 12, 0.15);
     }
     .metric-value {
         font-size: 36px;
         font-weight: 800;
-        background: linear-gradient(135deg, #7c3aed, #a78bfa);
+        background: linear-gradient(135deg, #ea580c, #fb923c);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         margin: 8px 0;
     }
     .metric-label {
         font-size: 13px;
-        color: #888;
+        color: #78716c;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
@@ -107,11 +107,12 @@ st.markdown(
         margin-bottom: 4px;
     }
     .pr-row {
-        background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+        background: #ffffff;
         border-radius: 12px;
         padding: 16px 20px;
         margin: 8px 0;
-        border: 1px solid #3a3a4e;
+        border: 1px solid #e7e5e4;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.04);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -232,10 +233,10 @@ with tab_prs:
                 f"""
             <div class="pr-row">
                 <div>
-                    <span style="font-size: 18px; font-weight: 600; color: #e0e0e0;">{pr["exercise"]}</span><br>
-                    <span style="font-size: 12px; color: #888;">{pr["sets"]}×{pr["reps"]} on {pr.get("date", "N/A")}</span>
+                    <span style="font-size: 18px; font-weight: 600; color: #1c1917;">{pr["exercise"]}</span><br>
+                    <span style="font-size: 12px; color: #78716c;">{pr["sets"]}×{pr["reps"]} on {pr.get("date", "N/A")}</span>
                 </div>
-                <div style="font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #7c3aed, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                <div style="font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #ea580c, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
                     {pr["weight"]}kg
                 </div>
             </div>

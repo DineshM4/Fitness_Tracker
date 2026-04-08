@@ -1,25 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
-        />
-        <title>Fitness Tracker — Demo</title>
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css"
-        />
-        <style>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" name="viewport"/>
+<title>Fitness Tracker - Demo</title>
+<link href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/white.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/monokai.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<style>
             :root {
                 --orange: #ea580c;
                 --orange-light: #fb923c;
@@ -658,416 +648,387 @@
             }
 
         </style>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section>
-                    <h1>
-                        <span class="title-emoji">💪</span>
-                        <span class="title-accent">Fitness Tracker</span>
-                    </h1>
-                    <div class="accent-bar"></div>
-                    <p class="title-sub">
-                        A full-stack workout logging app — FastAPI + Streamlit
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>
+<span class="title-emoji"><i aria-hidden="true" class="bi bi-activity icon"></i></span>
+<span class="title-accent">Fitness Tracker</span>
+</h1>
+<div class="accent-bar"></div>
+<p class="title-sub">
+                        A full-stack workout logging app - FastAPI + Streamlit
                     </p>
-                </section>
-
-                <section>
-                    <h2>What is it?</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+</section>
+<section>
+<h2>What is it?</h2>
+<div class="accent-bar"></div>
+<p style="
                             max-width: 700px;
                             margin: 1em auto 0;
                             font-size: clamp(0.62em, 0.5em + 0.5vw, 0.9em);
                             line-height: 1.6;
-                        "
-                    >
+                        ">
                         Fitness Tracker is a two-tier web application for
                         <strong style="color: var(--orange)">logging workouts</strong>,
                         tracking personal records, and visualizing your
-                        progress over time — all from the browser.
+                        progress over time - all from the browser.
                     </p>
-                    <div class="card-row" style="margin-top: 1.45em">
-                        <div class="card">
-                            <div class="card-icon">🏋️</div>
-                            <div class="card-value">Log</div>
-                            <div class="card-label">Workouts</div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">🏆</div>
-                            <div class="card-value">Track</div>
-                            <div class="card-label">PRs</div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">📈</div>
-                            <div class="card-value">Visualize</div>
-                            <div class="card-label">Progress</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Architecture</h2>
-                    <div class="accent-bar"></div>
-                    <div class="arch-container with-arrows">
-                        <div class="arch-box">
-                            <h3>🖥️ Frontend</h3>
-                            <p>Streamlit UI<br />port 8501</p>
-                        </div>
-                        <div class="arch-arrow">⟷</div>
-                        <div class="arch-box">
-                            <h3>⚙️ Backend</h3>
-                            <p>FastAPI + Uvicorn<br />port 8000</p>
-                        </div>
-                        <div class="arch-arrow">⟷</div>
-                        <div class="arch-box">
-                            <h3>🗄️ Database</h3>
-                            <p>SQLite<br />workout_logs.db</p>
-                        </div>
-                    </div>
-                    <p class="inline-note">
+<div class="card-row" style="margin-top: 1.45em">
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-bar-chart-line icon"></i></div>
+<div class="card-value">Log</div>
+<div class="card-label">Workouts</div>
+</div>
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-trophy icon"></i></div>
+<div class="card-value">Track</div>
+<div class="card-label">PRs</div>
+</div>
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-graph-up-arrow icon"></i></div>
+<div class="card-value">Visualize</div>
+<div class="card-label">Progress</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Architecture</h2>
+<div class="accent-bar"></div>
+<div class="arch-container with-arrows">
+<div class="arch-box">
+<h3><i aria-hidden="true" class="bi bi-window-sidebar icon"></i>Frontend</h3>
+<p>Streamlit UI<br/>port 8501</p>
+</div>
+<div class="arch-arrow">⟷</div>
+<div class="arch-box">
+<h3><i aria-hidden="true" class="bi bi-gear-wide-connected icon"></i>Backend</h3>
+<p>FastAPI + Uvicorn<br/>port 8000</p>
+</div>
+<div class="arch-arrow">⟷</div>
+<div class="arch-box">
+<h3><i aria-hidden="true" class="bi bi-database icon"></i>Database</h3>
+<p>SQLite<br/>workout_logs.db</p>
+</div>
+</div>
+<p class="inline-note">
                         The Streamlit frontend makes HTTP requests to the
-                        FastAPI backend via <code>requests</code>.<br />
+                        FastAPI backend via <code>requests</code>.<br/>
                         FastAPI handles validation with <code>Pydantic</code>
                         and persists data in a local SQLite file.
                     </p>
-                </section>
-
-                <section class="dense-slide tech-slide">
-                    <h2>Tech Stack</h2>
-                    <div class="accent-bar"></div>
-                    <div class="badge-row">
-                        <div class="badge">🐍 Python</div>
-                        <div class="badge">⚡ FastAPI</div>
-                        <div class="badge">🔄 Uvicorn</div>
-                        <div class="badge">🎨 Streamlit</div>
-                        <div class="badge">🗄️ SQLite</div>
-                        <div class="badge">🐼 Pandas</div>
-                        <div class="badge">🔗 Requests</div>
-                        <div class="badge">✅ Pydantic</div>
-                    </div>
-                    <div class="feature-grid" style="margin-top: 1.4em">
-                        <div class="feature-item">
-                            <strong>FastAPI</strong> — async-ready REST API with
+</section>
+<section class="dense-slide tech-slide">
+<h2>Tech Stack</h2>
+<div class="accent-bar"></div>
+<div class="badge-row">
+<div class="badge"><i aria-hidden="true" class="bi bi-code-slash icon"></i>Python</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-lightning-charge icon"></i>FastAPI</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-arrow-repeat icon"></i>Uvicorn</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-window-stack icon"></i>Streamlit</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-database icon"></i>SQLite</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-table icon"></i>Pandas</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-diagram-3 icon"></i>Requests</div>
+<div class="badge"><i aria-hidden="true" class="bi bi-shield-check icon"></i>Pydantic</div>
+</div>
+<div class="feature-grid" style="margin-top: 1.4em">
+<div class="feature-item">
+<strong>FastAPI</strong> - async-ready REST API with
                             automatic OpenAPI docs at <code>/docs</code>.
                             Validates every request with Pydantic models.
                         </div>
-                        <div class="feature-item">
-                            <strong>Streamlit</strong> — instant Python-powered
+<div class="feature-item">
+<strong>Streamlit</strong> - instant Python-powered
                             UI. Custom CSS cards, tabs, sidebar form, and charts
-                            — no JavaScript needed.
+                            - no JavaScript needed.
                         </div>
-                        <div class="feature-item">
-                            <strong>SQLite</strong> — zero-config embedded
+<div class="feature-item">
+<strong>SQLite</strong> - zero-config embedded
                             database. Auto-created and seeded with demo data on
                             first run.
                         </div>
-                        <div class="feature-item">
-                            <strong>Pandas</strong> — powers the dataframes and
+<div class="feature-item">
+<strong>Pandas</strong> - powers the dataframes and
                             line charts for weight progression and workout
                             history.
                         </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Dashboard</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+</div>
+</section>
+<section>
+<h2>Dashboard</h2>
+<div class="accent-bar"></div>
+<p style="
                             font-size: clamp(0.56em, 0.48em + 0.2vw, 0.8em);
                             color: var(--gray);
                             margin-top: 0.6em;
-                        "
-                    >
+                        ">
                         Four metric cards give you an instant snapshot of your training.
                     </p>
-                    <div class="card-row" style="margin-top: 1.1em">
-                        <div class="card">
-                            <div class="card-icon">🏋️</div>
-                            <div class="card-value">11</div>
-                            <div class="card-label">Total Workouts</div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">🔥</div>
-                            <div class="card-value">3 days</div>
-                            <div class="card-label">Current Streak</div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">🏆</div>
-                            <div class="card-value">125 kg</div>
-                            <div class="card-label">Heaviest: Deadlift</div>
-                        </div>
-                        <div class="card">
-                            <div class="card-icon">📊</div>
-                            <div class="card-value">31.2k kg</div>
-                            <div class="card-label">Total Volume</div>
-                        </div>
-                    </div>
-                    <div class="screenshot-frame">
-                        <em>Live dashboard — powered by <code style="color: var(--orange)">GET /workouts/stats</code></em>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Workout Log</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+<div class="card-row" style="margin-top: 1.1em">
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-bar-chart-line icon"></i></div>
+<div class="card-value">11</div>
+<div class="card-label">Total Workouts</div>
+</div>
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-lightning-charge icon"></i></div>
+<div class="card-value">3 days</div>
+<div class="card-label">Current Streak</div>
+</div>
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-trophy icon"></i></div>
+<div class="card-value">125 kg</div>
+<div class="card-label">Heaviest: Deadlift</div>
+</div>
+<div class="card">
+<div class="card-icon"><i aria-hidden="true" class="bi bi-bar-chart icon"></i></div>
+<div class="card-value">31.2k kg</div>
+<div class="card-label">Total Volume</div>
+</div>
+</div>
+<div class="screenshot-frame">
+<em>Live dashboard - powered by <code style="color: var(--orange)">GET /workouts/stats</code></em>
+</div>
+</section>
+<section>
+<h2>Workout Log</h2>
+<div class="accent-bar"></div>
+<p style="
                             font-size: clamp(0.56em, 0.48em + 0.2vw, 0.8em);
                             color: var(--gray);
                             margin-top: 0.6em;
-                        "
-                    >
+                        ">
                         Browse every session in a sortable table. Filter by exercise,
                         delete by ID.
                     </p>
-                    <div class="screenshot-frame" style="margin-top: 0.8em">
-                        <div class="table-wrap">
-                            <table style="text-align: left; border-collapse: collapse">
-                                <tr style="background: var(--orange); color: #fff">
-                                    <th>ID</th>
-                                    <th>Exercise</th>
-                                    <th>Sets</th>
-                                    <th>Reps</th>
-                                    <th>Weight (kg)</th>
-                                    <th>Date</th>
-                                </tr>
-                                <tr>
-                                    <td>11</td>
-                                    <td>Bench Press</td>
-                                    <td>5</td>
-                                    <td>6</td>
-                                    <td>90.0</td>
-                                    <td>2026-04-05</td>
-                                </tr>
-                                <tr style="background: #fef2f2">
-                                    <td>10</td>
-                                    <td>Overhead Press</td>
-                                    <td>4</td>
-                                    <td>6</td>
-                                    <td>55.0</td>
-                                    <td>2026-04-03</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>Bench Press</td>
-                                    <td>4</td>
-                                    <td>8</td>
-                                    <td>85.0</td>
-                                    <td>2026-04-02</td>
-                                </tr>
-                                <tr style="background: #fef2f2">
-                                    <td>8</td>
-                                    <td>Deadlift</td>
-                                    <td>3</td>
-                                    <td>5</td>
-                                    <td>125.0</td>
-                                    <td>2026-03-31</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dense-slide pr-slide">
-                    <h2>Personal Records</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+<div class="screenshot-frame" style="margin-top: 0.8em">
+<div class="table-wrap">
+<table style="text-align: left; border-collapse: collapse">
+<tr style="background: var(--orange); color: #fff">
+<th>ID</th>
+<th>Exercise</th>
+<th>Sets</th>
+<th>Reps</th>
+<th>Weight (kg)</th>
+<th>Date</th>
+</tr>
+<tr>
+<td>11</td>
+<td>Bench Press</td>
+<td>5</td>
+<td>6</td>
+<td>90.0</td>
+<td>2026-04-05</td>
+</tr>
+<tr style="background: #fef2f2">
+<td>10</td>
+<td>Overhead Press</td>
+<td>4</td>
+<td>6</td>
+<td>55.0</td>
+<td>2026-04-03</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Bench Press</td>
+<td>4</td>
+<td>8</td>
+<td>85.0</td>
+<td>2026-04-02</td>
+</tr>
+<tr style="background: #fef2f2">
+<td>8</td>
+<td>Deadlift</td>
+<td>3</td>
+<td>5</td>
+<td>125.0</td>
+<td>2026-03-31</td>
+</tr>
+</table>
+</div>
+</div>
+</section>
+<section class="dense-slide pr-slide">
+<h2>Personal Records</h2>
+<div class="accent-bar"></div>
+<p style="
                             font-size: clamp(0.56em, 0.48em + 0.2vw, 0.8em);
                             color: var(--gray);
                             margin-top: 0.6em;
-                        "
-                    >
-                        Automatically computed per exercise — your heaviest lift,
+                        ">
+                        Automatically computed per exercise - your heaviest lift,
                         displayed at a glance.
                     </p>
-                    <div class="pr-stack">
-                        <div class="pr-row">
-                            <div>
-                                <span class="pr-exercise">Bench Press</span><br />
-                                <span style="font-size: 0.75em; color: var(--gray)">5×6 on 2026-04-05</span>
-                            </div>
-                            <div class="pr-weight">90 kg</div>
-                        </div>
-                        <div class="pr-row">
-                            <div>
-                                <span class="pr-exercise">Squat</span><br />
-                                <span style="font-size: 0.75em; color: var(--gray)">4×8 on 2026-04-04</span>
-                            </div>
-                            <div class="pr-weight">110 kg</div>
-                        </div>
-                        <div class="pr-row">
-                            <div>
-                                <span class="pr-exercise">Deadlift</span><br />
-                                <span style="font-size: 0.75em; color: var(--gray)">3×5 on 2026-03-31</span>
-                            </div>
-                            <div class="pr-weight">125 kg</div>
-                        </div>
-                        <div class="pr-row">
-                            <div>
-                                <span class="pr-exercise">Overhead Press</span><br />
-                                <span style="font-size: 0.75em; color: var(--gray)">4×6 on 2026-04-03</span>
-                            </div>
-                            <div class="pr-weight">55 kg</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Progress Charts</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+<div class="pr-stack">
+<div class="pr-row">
+<div>
+<span class="pr-exercise">Bench Press</span><br/>
+<span style="font-size: 0.75em; color: var(--gray)">5×6 on 2026-04-05</span>
+</div>
+<div class="pr-weight">90 kg</div>
+</div>
+<div class="pr-row">
+<div>
+<span class="pr-exercise">Squat</span><br/>
+<span style="font-size: 0.75em; color: var(--gray)">4×8 on 2026-04-04</span>
+</div>
+<div class="pr-weight">110 kg</div>
+</div>
+<div class="pr-row">
+<div>
+<span class="pr-exercise">Deadlift</span><br/>
+<span style="font-size: 0.75em; color: var(--gray)">3×5 on 2026-03-31</span>
+</div>
+<div class="pr-weight">125 kg</div>
+</div>
+<div class="pr-row">
+<div>
+<span class="pr-exercise">Overhead Press</span><br/>
+<span style="font-size: 0.75em; color: var(--gray)">4×6 on 2026-04-03</span>
+</div>
+<div class="pr-weight">55 kg</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Progress Charts</h2>
+<div class="accent-bar"></div>
+<p style="
                             font-size: clamp(0.56em, 0.48em + 0.2vw, 0.8em);
                             color: var(--gray);
                             margin-top: 0.6em;
-                        "
-                    >
+                        ">
                         Pick an exercise and watch your weight trend over time.
                     </p>
-                    <div class="chart-mockup">
-                        <svg viewBox="0 0 600 200" preserveAspectRatio="xMidYMid meet">
-                            <line x1="50" y1="20" x2="50" y2="170" stroke="#e7e5e4" stroke-width="1" />
-                            <line x1="50" y1="170" x2="580" y2="170" stroke="#e7e5e4" stroke-width="1" />
-                            <line x1="50" y1="120" x2="580" y2="120" stroke="#f5f5f4" stroke-width="1" stroke-dasharray="4" />
-                            <line x1="50" y1="70" x2="580" y2="70" stroke="#f5f5f4" stroke-width="1" stroke-dasharray="4" />
-                            <text x="40" y="175" font-size="10" fill="#78716c" text-anchor="end">80</text>
-                            <text x="40" y="125" font-size="10" fill="#78716c" text-anchor="end">85</text>
-                            <text x="40" y="75" font-size="10" fill="#78716c" text-anchor="end">90</text>
-                            <polyline
-                                points="80,170 190,135 330,95 470,50 560,20"
-                                fill="none"
-                                stroke="#ea580c"
-                                stroke-width="3"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                            <circle cx="80" cy="170" r="5" fill="#ea580c" />
-                            <circle cx="190" cy="135" r="5" fill="#ea580c" />
-                            <circle cx="330" cy="95" r="5" fill="#ea580c" />
-                            <circle cx="470" cy="50" r="5" fill="#ea580c" />
-                            <circle cx="560" cy="20" r="5" fill="#ea580c" />
-                            <text x="80" y="190" font-size="10" fill="#78716c" text-anchor="middle">Mar 23</text>
-                            <text x="190" y="190" font-size="10" fill="#78716c" text-anchor="middle">Mar 27</text>
-                            <text x="330" y="190" font-size="10" fill="#78716c" text-anchor="middle">Apr 2</text>
-                            <text x="470" y="190" font-size="10" fill="#78716c" text-anchor="middle">Apr 4</text>
-                            <text x="560" y="190" font-size="10" fill="#78716c" text-anchor="middle">Apr 5</text>
-                            <text x="315" y="12" font-size="13" fill="#1c1917" font-weight="700" text-anchor="middle">
-                                Bench Press — Weight Progression
+<div class="chart-mockup">
+<svg preserveaspectratio="xMidYMid meet" viewbox="0 0 600 200">
+<line stroke="#e7e5e4" stroke-width="1" x1="50" x2="50" y1="20" y2="170"></line>
+<line stroke="#e7e5e4" stroke-width="1" x1="50" x2="580" y1="170" y2="170"></line>
+<line stroke="#f5f5f4" stroke-dasharray="4" stroke-width="1" x1="50" x2="580" y1="120" y2="120"></line>
+<line stroke="#f5f5f4" stroke-dasharray="4" stroke-width="1" x1="50" x2="580" y1="70" y2="70"></line>
+<text fill="#78716c" font-size="10" text-anchor="end" x="40" y="175">80</text>
+<text fill="#78716c" font-size="10" text-anchor="end" x="40" y="125">85</text>
+<text fill="#78716c" font-size="10" text-anchor="end" x="40" y="75">90</text>
+<polyline fill="none" points="80,170 190,135 330,95 470,50 560,20" stroke="#ea580c" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<circle cx="80" cy="170" fill="#ea580c" r="5"></circle>
+<circle cx="190" cy="135" fill="#ea580c" r="5"></circle>
+<circle cx="330" cy="95" fill="#ea580c" r="5"></circle>
+<circle cx="470" cy="50" fill="#ea580c" r="5"></circle>
+<circle cx="560" cy="20" fill="#ea580c" r="5"></circle>
+<text fill="#78716c" font-size="10" text-anchor="middle" x="80" y="190">Mar 23</text>
+<text fill="#78716c" font-size="10" text-anchor="middle" x="190" y="190">Mar 27</text>
+<text fill="#78716c" font-size="10" text-anchor="middle" x="330" y="190">Apr 2</text>
+<text fill="#78716c" font-size="10" text-anchor="middle" x="470" y="190">Apr 4</text>
+<text fill="#78716c" font-size="10" text-anchor="middle" x="560" y="190">Apr 5</text>
+<text fill="#1c1917" font-size="13" font-weight="700" text-anchor="middle" x="315" y="12">
+                                Bench Press - Weight Progression
                             </text>
-                        </svg>
-                    </div>
-                </section>
-
-                <section class="dense-slide quick-add-slide">
-                    <h2>Quick Add</h2>
-                    <div class="accent-bar"></div>
-                    <p
-                        style="
+</svg>
+</div>
+</section>
+<section class="dense-slide quick-add-slide">
+<h2>Quick Add</h2>
+<div class="accent-bar"></div>
+<p style="
                             font-size: clamp(0.56em, 0.48em + 0.2vw, 0.8em);
                             color: var(--gray);
                             margin-top: 0.6em;
-                        "
-                    >
+                        ">
                         Sidebar form to log a workout in seconds. Date defaults to today.
                     </p>
-                    <div class="screenshot-frame narrow-panel" style="margin: 1em auto 0">
-                        <div style="text-align: left; font-size: 0.85em">
-                            <p style="margin: 0 0 8px; font-weight: 700; font-size: 1em">➕ Quick Add</p>
-                            <div style="margin-bottom: 8px">
-                                <strong>Exercise</strong><br /><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: min(180px, 100%)">Bench Press</span>
-                            </div>
-                            <div style="margin-bottom: 8px">
-                                <strong>Sets</strong><br /><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">4</span>
-                            </div>
-                            <div style="margin-bottom: 8px">
-                                <strong>Reps</strong><br /><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">8</span>
-                            </div>
-                            <div style="margin-bottom: 8px">
-                                <strong>Weight (kg)</strong><br /><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">85.0</span>
-                            </div>
-                            <div style="margin-bottom: 8px">
-                                <strong>Date</strong><br /><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 120px">2026-04-05</span>
-                            </div>
-                            <div style="background: var(--orange); color: #fff; padding: 10px; border-radius: 8px; text-align: center; font-weight: 700; margin-top: 12px">
+<div class="screenshot-frame narrow-panel" style="margin: 1em auto 0">
+<div style="text-align: left; font-size: 0.85em">
+<p class="quick-add-title" style="margin: 0 0 8px; font-weight: 700; font-size: 1em"><i aria-hidden="true" class="bi bi-plus-circle icon"></i>Quick Add</p>
+<div style="margin-bottom: 8px">
+<strong>Exercise</strong><br/><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: min(180px, 100%)">Bench Press</span>
+</div>
+<div style="margin-bottom: 8px">
+<strong>Sets</strong><br/><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">4</span>
+</div>
+<div style="margin-bottom: 8px">
+<strong>Reps</strong><br/><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">8</span>
+</div>
+<div style="margin-bottom: 8px">
+<strong>Weight (kg)</strong><br/><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 80px">85.0</span>
+</div>
+<div style="margin-bottom: 8px">
+<strong>Date</strong><br/><span style="background: #f5f5f4; padding: 4px 12px; border-radius: 6px; display: inline-block; min-width: 120px">2026-04-05</span>
+</div>
+<div style="background: var(--orange); color: #fff; padding: 10px; border-radius: 8px; text-align: center; font-weight: 700; margin-top: 12px">
                                 Add Workout
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="dense-slide api-slide">
-                    <h2>API Reference</h2>
-                    <div class="accent-bar"></div>
-                    <div class="table-wrap">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Method</th>
-                                    <th>Endpoint</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><code style="color: var(--orange)">POST</code></td>
-                                    <td><code>/workouts</code></td>
-                                    <td>Add a new workout</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">GET</code></td>
-                                    <td><code>/workouts</code></td>
-                                    <td>Retrieve all logs <span style="font-size: 0.85em; color: var(--gray)">(optional <code>?exercise=</code>)</span></td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">GET</code></td>
-                                    <td><code>/workouts/exercises</code></td>
-                                    <td>List distinct exercise names</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">GET</code></td>
-                                    <td><code>/workouts/stats</code></td>
-                                    <td>Dashboard stats (streak, volume, heaviest)</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">GET</code></td>
-                                    <td><code>/workouts/prs</code></td>
-                                    <td>Personal records per exercise</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">PUT</code></td>
-                                    <td><code>/workouts/{id}</code></td>
-                                    <td>Update a workout by ID</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">DELETE</code></td>
-                                    <td><code>/workouts/{id}</code></td>
-                                    <td>Delete a workout by ID</td>
-                                </tr>
-                                <tr>
-                                    <td><code style="color: var(--orange)">DELETE</code></td>
-                                    <td><code>/workouts</code></td>
-                                    <td>Delete all workout logs</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p style="font-size: 0.7em; color: var(--gray); margin-top: 1em">
+</div>
+</div>
+</section>
+<section class="dense-slide api-slide">
+<h2>API Reference</h2>
+<div class="accent-bar"></div>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code style="color: var(--orange)">POST</code></td>
+<td><code>/workouts</code></td>
+<td>Add a new workout</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">GET</code></td>
+<td><code>/workouts</code></td>
+<td>Retrieve all logs <span style="font-size: 0.85em; color: var(--gray)">(optional <code>?exercise=</code>)</span></td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">GET</code></td>
+<td><code>/workouts/exercises</code></td>
+<td>List distinct exercise names</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">GET</code></td>
+<td><code>/workouts/stats</code></td>
+<td>Dashboard stats (streak, volume, heaviest)</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">GET</code></td>
+<td><code>/workouts/prs</code></td>
+<td>Personal records per exercise</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">PUT</code></td>
+<td><code>/workouts/{id}</code></td>
+<td>Update a workout by ID</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">DELETE</code></td>
+<td><code>/workouts/{id}</code></td>
+<td>Delete a workout by ID</td>
+</tr>
+<tr>
+<td><code style="color: var(--orange)">DELETE</code></td>
+<td><code>/workouts</code></td>
+<td>Delete all workout logs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size: 0.7em; color: var(--gray); margin-top: 1em">
                         Interactive Swagger docs at <code>http://127.0.0.1:8000/docs</code>
-                    </p>
-                </section>
-
-                <section>
-                    <h2>
-                        API Deep Dive —
+</p>
+</section>
+<section>
+<h2>
+                        API Deep Dive -
                         <span style="color: var(--orange)">/workouts/stats</span>
-                    </h2>
-                    <div class="accent-bar"></div>
-                    <pre style="margin-top: 1em"><code class="language-json" style="font-size:0.65em;">{
+</h2>
+<div class="accent-bar"></div>
+<pre style="margin-top: 1em"><code class="language-json" style="font-size:0.65em;">{
   "total_workouts": 11,
   "current_streak": 3,
   "heaviest_lift": {
@@ -1076,92 +1037,84 @@
   },
   "total_volume": 31250.0
 }</code></pre>
-                    <p style="font-size: 0.75em; color: var(--gray); margin-top: 0.8em">
+<p style="font-size: 0.75em; color: var(--gray); margin-top: 0.8em">
                         The streak algorithm checks consecutive days with logged workouts,
                         starting from today or yesterday if nothing logged today.
                     </p>
-                </section>
-
-                <section class="dense-slide demo-slide">
-                    <h2>Demo Data</h2>
-                    <div class="accent-bar"></div>
-                    <p style="font-size: 0.8em; color: var(--gray); margin-top: 0.6em">
+</section>
+<section class="dense-slide demo-slide">
+<h2>Demo Data</h2>
+<div class="accent-bar"></div>
+<p style="font-size: 0.8em; color: var(--gray); margin-top: 0.6em">
                         On first launch, the database is seeded with 11 realistic workout
                         entries spanning the last two weeks.
                     </p>
-                    <div class="feature-grid" style="max-width: 640px; margin: 1.2em auto 0">
-                        <div class="feature-item">
-                            <strong>Bench Press</strong><br />4 sessions — 80 kg → 90 kg
+<div class="feature-grid" style="max-width: 640px; margin: 1.2em auto 0">
+<div class="feature-item">
+<strong>Bench Press</strong><br/>4 sessions - 80 kg → 90 kg
                         </div>
-                        <div class="feature-item">
-                            <strong>Squat</strong><br />3 sessions — 100 kg → 110 kg
+<div class="feature-item">
+<strong>Squat</strong><br/>3 sessions - 100 kg → 110 kg
                         </div>
-                        <div class="feature-item">
-                            <strong>Deadlift</strong><br />2 sessions — 120 kg → 125 kg
+<div class="feature-item">
+<strong>Deadlift</strong><br/>2 sessions - 120 kg → 125 kg
                         </div>
-                        <div class="feature-item">
-                            <strong>Overhead Press</strong><br />2 sessions — 50 kg → 55 kg
+<div class="feature-item">
+<strong>Overhead Press</strong><br/>2 sessions - 50 kg → 55 kg
                         </div>
-                    </div>
-                    <p style="font-size: 0.7em; color: var(--gray); margin-top: 1em">
+</div>
+<p style="font-size: 0.7em; color: var(--gray); margin-top: 1em">
                         Dates are computed relative to today, so the demo always looks fresh.
                     </p>
-                </section>
-
-                <section class="launch-slide">
-                    <h2>Launch Instructions</h2>
-                    <div class="accent-bar"></div>
-
-                    <div class="launch-container">
-                        <div class="launch-step">
-                            <div class="step-circle">1</div>
-                            <div class="step-content">
-                                <div class="step-title">Clone &amp; enter the project</div>
-                                <div class="cmd">cd Fitness_Tracker</div>
-                            </div>
-                        </div>
-
-                        <div class="launch-step">
-                            <div class="step-circle">2</div>
-                            <div class="step-content">
-                                <div class="step-title">Create a virtual environment</div>
-                                <div class="cmd">python3 -m venv .venv</div>
-                                <div class="cmd" style="margin-top: 0.45rem">source .venv/bin/activate</div>
-                            </div>
-                        </div>
-
-                        <div class="launch-step">
-                            <div class="step-circle">3</div>
-                            <div class="step-content">
-                                <div class="step-title">Install dependencies</div>
-                                <div class="cmd">pip install -r requirements.txt</div>
-                            </div>
-                        </div>
-
-                        <div class="launch-step">
-                            <div class="step-circle">4</div>
-                            <div class="step-content">
-                                <div class="step-title">Start the backend</div>
-                                <div class="cmd">python app.py</div>
-                                <div class="step-link">→ http://127.0.0.1:8000</div>
-                            </div>
-                        </div>
-
-                        <div class="launch-step">
-                            <div class="step-circle">5</div>
-                            <div class="step-content">
-                                <div class="step-title">In a second terminal, start the frontend</div>
-                                <div class="cmd">streamlit run streamlit_app.py</div>
-                                <div class="step-link">→ http://localhost:8501</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Project Structure</h2>
-                    <div class="accent-bar"></div>
-                    <pre style="margin-top: 1em"><code class="language-bash" style="font-size:0.72em;">Fitness_Tracker/
+</section>
+<section class="launch-slide">
+<h2>Launch Instructions</h2>
+<div class="accent-bar"></div>
+<div class="launch-container">
+<div class="launch-step">
+<div class="step-circle">1</div>
+<div class="step-content">
+<div class="step-title">Clone &amp; enter the project</div>
+<div class="cmd">cd Fitness_Tracker</div>
+</div>
+</div>
+<div class="launch-step">
+<div class="step-circle">2</div>
+<div class="step-content">
+<div class="step-title">Create a virtual environment</div>
+<div class="cmd">python3 -m venv .venv</div>
+<div class="cmd" style="margin-top: 0.45rem">source .venv/bin/activate</div>
+</div>
+</div>
+<div class="launch-step">
+<div class="step-circle">3</div>
+<div class="step-content">
+<div class="step-title">Install dependencies</div>
+<div class="cmd">pip install -r requirements.txt</div>
+</div>
+</div>
+<div class="launch-step">
+<div class="step-circle">4</div>
+<div class="step-content">
+<div class="step-title">Start the backend</div>
+<div class="cmd">python app.py</div>
+<div class="step-link">→ http://127.0.0.1:8000</div>
+</div>
+</div>
+<div class="launch-step">
+<div class="step-circle">5</div>
+<div class="step-content">
+<div class="step-title">In a second terminal, start the frontend</div>
+<div class="cmd">streamlit run streamlit_app.py</div>
+<div class="step-link">→ http://localhost:8501</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<h2>Project Structure</h2>
+<div class="accent-bar"></div>
+<pre style="margin-top: 1em"><code class="language-bash" style="font-size:0.72em;">Fitness_Tracker/
 ├── app.py                  # FastAPI backend + Uvicorn entry point
 ├── streamlit_app.py        # Streamlit frontend
 ├── requirements.txt        # Python dependencies
@@ -1170,29 +1123,27 @@
 ├── workout_logs.db         # SQLite DB (auto-created)
 ├── .gitignore
 └── README.md</code></pre>
-                </section>
-
-                <section>
-                    <h1><span class="closing-emoji">💪</span></h1>
-                    <h2>
-                        Track workouts.<br /><span class="title-accent">Crush PRs.</span><br />Stay consistent.
+</section>
+<section>
+<h1><span class="closing-emoji"><i aria-hidden="true" class="bi bi-activity icon"></i></span></h1>
+<h2>
+                        Track workouts.<br/><span class="title-accent">Crush PRs.</span><br/>Stay consistent.
                     </h2>
-                    <div class="accent-bar"></div>
-                    <p style="margin-top: 1.4em; font-size: 0.85em">
-                        <span class="closing-links"><a href="http://127.0.0.1:8000/docs">API Docs</a></span>
-                        &nbsp;&nbsp;·&nbsp;&nbsp;
+<div class="accent-bar"></div>
+<p style="margin-top: 1.4em; font-size: 0.85em">
+<span class="closing-links"><a href="http://127.0.0.1:8000/docs">API Docs</a></span>
+                          ·  
                         <span class="closing-links"><a href="http://localhost:8501">Live App</a></span>
-                    </p>
-                    <p style="font-size: 0.65em; color: var(--gray); margin-top: 2em">
+</p>
+<p style="font-size: 0.65em; color: var(--gray); margin-top: 2em">
                         Built with FastAPI · Streamlit · SQLite
                     </p>
-                </section>
-            </div>
-        </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
-        <script>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/highlight/highlight.js"></script>
+<script>
             Reveal.initialize({
                 hash: true,
                 slideNumber: true,
@@ -1207,5 +1158,5 @@
                 plugins: [RevealHighlight],
             });
         </script>
-    </body>
+</body>
 </html>

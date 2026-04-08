@@ -154,7 +154,7 @@ except requests.HTTPError as e:
     st.stop()
 
 # --- Header ---
-st.title("💪 Fitness Tracker")
+st.title("Fitness Tracker")
 st.caption("Track workouts. Crush PRs. Stay consistent.")
 
 # --- Dashboard Cards ---

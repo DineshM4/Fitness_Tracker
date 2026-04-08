@@ -1,4 +1,4 @@
-# 💪 Fitness Tracker
+# Fitness Tracker
 
 A full-stack fitness tracking application for logging workouts — track exercises, sets, reps, weight, and date with a browser-based UI backed by a REST API.
 
